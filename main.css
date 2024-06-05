@@ -7,7 +7,6 @@
 header h1,
 section h2,
 section h3,
-section h4,
 form button {
     font-family: "Bungee", cursive;
     font-weight: normal;
@@ -25,6 +24,7 @@ body {
     line-height: 1.6;
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
 }
 
 header {
@@ -46,6 +46,7 @@ header nav li {
 header nav li a {
     color: #ecf0f1;
     text-decoration: none;
+    transition: color 0.3s;
 }
 
 header nav li a:hover {
@@ -81,7 +82,7 @@ section h2 {
 }
 
 section {
-    color: #15520e
+    color: #182c61;
 }
 
 .store-front {
@@ -104,7 +105,7 @@ section {
 }
 
 #contact {
-    flex: 1; 
+    flex: 1; /* Permite que a seção de contato cresça e preencha o espaço disponível */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -122,14 +123,17 @@ section {
 }
 
 .contact-methods {
-    display: block;
-    width: auto;
-    margin-top: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 24px;
 }
 
 .contact-methods > div {
-    min-width: 300px;
-    margin: 8px 8px;
+    flex: 1;
+    min-width: 280px;
+    margin: 16px 8px;
 }
 
 form input,
@@ -153,7 +157,7 @@ section h3 {
 }
 
 form button {
-    background-color: #15520e;
+    background-color: #182c61;
     color: #ecf0f1;
     border: none;
     cursor: pointer;
@@ -161,16 +165,16 @@ form button {
 }
 
 form button:hover {
-    background-color: #80e675;
+    background-color: #3d61c5;
 }
 
 input:focus,
 textarea:focus {
-    outline-color: #15520e;
+    outline-color: #182c61;
 }
 
 footer {
-    background-color: #15520e;
+    background-color: #182c61;
     color: #ecf0f1;
     text-align: center;
     padding: 16px 0;
@@ -199,3 +203,50 @@ section div {
 #Duvidas .container {
     flex-direction: row-reverse;
 }
+
+@media (max-width: 768px) /*resposividade*/{
+    .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .store-front {
+        margin-right: 0;
+        margin-bottom: 16px;
+        max-width: 100%;
+    }
+
+    section div {
+        max-width: 100%;
+    }
+
+    header .container,
+    section .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header nav li {
+        display: block;
+        margin: 8px 0;
+    }
+
+    .contact-methods {
+        flex-direction: column;
+    }
+
+    .contact-methods > div {
+        max-width: 100%;
+    }
+
+    form input,
+    form textarea,
+    form button {
+        max-width: 100%;
+    }
+
+    #Duvidas .container {
+        flex-direction: column;
+    }
+}
+
